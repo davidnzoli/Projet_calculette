@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./calcul.css">
+    <title>Calcul</title>
+</head>
+<body>
+    <div class="conte">
+        <div class="champ"></div>
+        <div class="touches">
+            <button class="btn sup" id="sign">AC</button>
+            <button class="btn nbr" id="sign">%</button>
+            <button class="btn nbr" id="sign">(</button>
+            <button class="btn nbr"id="sign">)</button>
+            <button class="btn nbr" id="sign">/</button>
+            <button class="btn nbr">7</button>
+            <button class="btn nbr">8</button>
+            <button class="btn nbr">9</button>
+            <button class="btn nbr" id="sign">+</button>
+            <button class="btn nbr">6</button>
+            <button class="btn nbr">5</button>
+            <button class="btn nbr">4</button>
+            <button class="btn nbr" id="sign">-</button>
+            <button class="btn nbr">1</button>
+            <button class="btn nbr">2</button>
+            <button class="btn nbr">3</button>
+            <button class="btn nbr" id="sign">*</button>
+            <button class="btn nbr">.</button>
+            <button class="btn egale">=</button>
+            <button class="btn nbr">0</button>
+        </div>
+    </div>
+
+
+    <script>
+
+        const champ = document.querySelector('.champ');
+
+        const button = document.querySelectorAll('.nbr');
+        for(let i = 0; i<button.length; i++){
+            button[i].addEventListener('click', (e)=>{
+                const span = document.createElement('span');
+                const valeur = e.target.textContent;
+                span.textContent = valeur;
+                span.style.color='black';
+                span.style.fontSize ='20px';
+                span.style.lineHeight='100px';
+                champ.appendChild(span);  
+            })
+        }
+
+        const egale = document.querySelector('.egale');
+        egale.addEventListener('click', ()=>{
+                const span = document.createElement('span');
+                span.style.color='black';
+                span.style.fontSize ='20px';
+                span.style.lineHeight='100px';
+                const valeur = champ.textContent;
+                span.textContent = eval(valeur);
+                champ.textContent ='';
+                champ.appendChild(span); 
+        })
+        const sup = document.querySelector('.sup');
+        sup.addEventListener('click', ()=>{
+            champ.textContent ='';
+        })
+    </script>
+</body>
+</html>

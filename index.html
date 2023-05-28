@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Calculette</title>
+</head>
+<body>
+    <div class="conteneur">
+        <div class="buttons_cont">
+            <div class="inter_reponse">
+            </div>
+            <div class="button efface entete" id=" entete1"><h1>AC</h1></div>
+            <div class="button btn entete" id=" entete2"><h1>+/-</h1></div>
+            <div class="button btn entete" id=" entete3"><h1>%</h1></div>
+            <div class="button btn sign" id="division"><h1>/</h1></div>
+
+            <div class="button btn" id="button7"><h1>7</h1></div>
+            <div class="button btn" id="button8"><h1>8</h1></div>
+            <div class="button btn" id="button9"><h1>9</h1></div>
+            <div class="button btn sign" id="addition"><h1>+</h1></div>
+ 
+            <div class="button btn" id="button4"><h1>4</h1></div>
+            <div class="button btn" id="button5"><h1>5</h1></div>
+            <div class="button btn" id="button6"><h1>6</h1></div>
+            <div class="button btn sign" id="soustration"><h1>-</h1></div>
+
+            <div class="button btn" id="button1"><h1>1</h1></div>
+            <div class="button btn" id="button2"><h1>2</h1></div>
+            <div class="button btn" id="button3"><h1>3</h1></div>
+            <div class="button btn sign" id="multiplication"><h1>*</h1></div>
+
+            <div class="button btn" id="button0"><h1>0</h1></div>
+            <div class="button btn virg" id="vurgule"><h1>.</h1></div>
+            <div class="button sign" id="egalite"><h1>=</h1></div>
+        </div>
+    </div>
+
+
+    <script>
+        const champR = document.querySelector('.inter_reponse');
+        const division = document.querySelector('#division'); 
+        const soustration = document.querySelector('#soustration');
+        const multiplication = document.querySelector('#multiplication');
+        const btn = document.querySelectorAll('.btn');
+
+        let supEl = function(){
+            return champR.textContent = '';
+        }
+
+        for(let i= 0 ; i<btn.length; i++){
+            btn[i].addEventListener('click', function buttonN(e){  
+                const valeur = e.target.textContent;
+                const span = document.createElement('span');
+                span.textContent = valeur;
+                 span.style.color = 'white';
+                span.style.fontSize = '20px';
+                champR.appendChild(span);
+                
+            })
+        };
+
+        const egalite = document.querySelector('#egalite');
+        egalite.addEventListener('click', function(){
+                const span = document.createElement('span');
+                 span.style.color = 'white';
+                span.style.fontSize = '20px';
+                const save = champR.textContent;
+                const reponse = eval(save);
+                champR.textContent='';
+                span.textContent =reponse;
+                champR.appendChild(span);
+        })
+
+        const efface = document.querySelector('.efface');
+        efface.addEventListener('click',()=>{
+                
+                supEl();
+                const span = document.createElement('span');
+                 span.style.color = 'white';
+                span.style.fontSize = '20px';
+                champR.appendChild(span);
+        })
+
+
+
+
+
+
+
+
+
+    //    const button7 = document.querySelector('#button7');
+    //    button7.addEventListener('click', function(){
+    //         const valeur = document.querySelector('#button7').textContent;
+    //         const span = document.createElement('span');
+    //         span.textContent = valeur;
+    //         span.style.color = 'white';
+    //         span.style.fontSize = '20px';
+    //         champR.appendChild(span);
+    //    })
+    //    const button8 = document.querySelector('#button8');
+    //    button8.addEventListener('click', function(){
+    //         const valeur = document.querySelector('#button8').textContent;
+    //         const span = document.createElement('span');
+    //         span.textContent = valeur;
+    //         span.style.color = 'white';
+    //         span.style.fontSize = '20px';
+    //         champR.appendChild(span);
+    //    })
+    //    const addition = document.querySelector('#addition');
+    //    addition.addEventListener('click', function(){
+           
+    //         const valeur = addition.textContent;
+    //         const span = document.createElement('span');
+    //         span.textContent = valeur;
+    //         span.style.color = 'white';
+    //         span.style.fontSize = '20px';
+    //         champR.appendChild(span);
+    //    })
+
+    //    const egalite = document.querySelector('#egalite');
+    //    egalite.addEventListener('click', function(){
+    //         const valeur = egalite.textContent;
+    //         const span = document.createElement('span');
+    //         span.style.color = 'white';
+    //         span.style.fontSize = '20px';
+
+            
+    //         const save = champR.textContent;
+    //         const reponse = eval(save);
+    //         champR.textContent = '';
+    //         span.textContent =reponse;
+    //         champR.appendChild(span);
+    //    })
+    </script>
+</body>
+</html>
